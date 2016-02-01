@@ -34,7 +34,7 @@ const common = {
   },
   plugins: [
     new HtmlWepackPlugin({
-      template: 'node_modules/html-webpack-template/index.html',
+      template: 'lib/template.html',
       title: 'Endpoint',
       mobile: true,
       appMountId: 'app',
