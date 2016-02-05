@@ -4,6 +4,7 @@ import { routeActions } from 'react-router-redux';
 import * as actions from '../actions';
 
 function loginApi({ username, password }) {
+  // TODO: remove hard coded url
   return axios.post('http://localhost:3000/auth/signin', { username, password })
     .then((response) => response.data);
 }
