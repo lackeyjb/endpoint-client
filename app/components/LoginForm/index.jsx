@@ -35,7 +35,7 @@ const LoginForm = ({ fields, onLoginUser, className }) => {
           placeholder="Password"
           {...password}
         />
-        <i className={`${styles.envelope} fa fa-envelope`}></i>
+        <i className={`${styles.lock} fa fa-lock`}></i>
       </p>
       <p className="control">
         <button className="button is-success is-large" type="submit">
