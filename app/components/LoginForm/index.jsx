@@ -5,11 +5,14 @@ import styles from './LoginForm.scss';
 const LoginForm = ({ fields, onLoginUser, className }) => {
   const { username, password } = fields;
 
-  function onSubmit() {
+  function onSubmit(event) {
+    event.preventDefault();
+
     const user = {
       username: username.value,
       password: password.value,
     };
+
     return onLoginUser(user);
   }
 
