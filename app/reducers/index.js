@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
 import { routeReducer } from 'react-router-redux';
 import { reducer as formReducer } from 'redux-form';
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from '../actions';
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE,
+         LOGOUT_REQUEST, LOGOUT_SUCCESS } from '../actions';
 
 function auth(state = {
   isFetching: false,
@@ -28,6 +29,18 @@ function auth(state = {
         isFetching: false,
         isAuthenticated: false,
         errorMessage: action.message,
+      };
+    case LOGOUT_REQUEST:
+      return {
+        ...state,
+        isFetching: true,
+        isAuthenticated: true,
+      };
+    case LOGOUT_SUCCESS:
+      return {
+        ...state,
+        isFetching: false,
+        isAuthenticated: false,
       };
     default:
       return state;
