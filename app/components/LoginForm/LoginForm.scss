@@ -1,0 +1,11 @@
+.icon {
+  top: 15px !important;
+}
+.lock {
+  @extend .icon;
+  font-size: 25px !important;
+}
+.envelope {
+  @extend .icon;
+  font-size: 20px !important;
+}
