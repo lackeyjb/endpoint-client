@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
-import FontAwesome from './FontAwesome';
+import { FontAwesome } from './Icon';
 
 function hasIcon(icon) {
   if (icon) {

@@ -1,5 +1,9 @@
 import React, { PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
+import FormGroup from '../common/FormGroup';
+import Button from '../common/Button';
+import Title from '../common/Title';
+import { FontAwesome } from '../common/Icon';
 import styles from './LoginForm.scss';
 
 const LoginForm = ({ fields, onLoginUser, className }) => {
@@ -18,30 +22,16 @@ const LoginForm = ({ fields, onLoginUser, className }) => {
 
   return (
     <form className={className} onSubmit={onSubmit}>
-      <h1 className="title">Login</h1>
-      <p className="control is-withicon">
-        <input
-          className="input is-large"
-          type="text"
-          placeholder="Username"
-          {...username}
-        />
-        <i className={`${styles.envelope} fa fa-envelope`}></i>
-      </p>
-      <p className="control is-withicon">
-        <input
-          className="input is-large"
-          type="password"
-          placeholder="Password"
-          {...password}
-        />
-        <i className={`${styles.lock} fa fa-lock`}></i>
-      </p>
-      <p className="control">
-        <button className="button is-success is-large" type="submit">
-          Login
-        </button>
-      </p>
+      <Title text="Login" />
+      <FormGroup type="text" size="large" placeholder="Username" icon field={username}>
+        <FontAwesome className={styles.envelope} icon="envelope" />
+      </FormGroup>
+      <FormGroup type="password" size="large" placeholder="Password" icon field={password}>
+        <FontAwesome className={styles.lock} icon="lock" />
+      </FormGroup>
+      <FormGroup input={false}>
+        <Button color="success" size="large" type="submit" text="Login" />
+      </FormGroup>
     </form>
   );
 };
