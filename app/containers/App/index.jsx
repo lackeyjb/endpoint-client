@@ -1,19 +1,30 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { requestLogout } from '../../actions';
+import Footer from '../../components/Footer';
 import { Navbar } from '../../components/Navbar';
+import styles from './App.scss';
 
 export const App = ({
   children,
   isAuthenticated,
   onLogout,
 }) => (
-  <div>
-    <Navbar
-      isAuthenticated={isAuthenticated}
-      onLogout={onLogout}
-    />
-    {children}
+  <div className={styles.window}>
+    <div className={styles.windowContent}>
+      <div className={styles.paneGroup}>
+        <div className={`${styles.paneSm} ${styles.sidebar}`}>
+          <Navbar
+            isAuthenticated={isAuthenticated}
+            onLogout={onLogout}
+          />
+        </div>
+        <main className={styles.pane}>
+          {children}
+        </main>
+      </div>
+    </div>
+    <Footer title="Endpoint" />
   </div>
 );
 
