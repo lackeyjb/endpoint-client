@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { requestLogout } from '../../actions';
 import Footer from '../../components/Footer';
-import { Navbar } from '../../components/Navbar';
+import { Sidebar } from '../../components/Sidebar';
 import styles from './App.scss';
 
 export const App = ({
@@ -14,7 +14,7 @@ export const App = ({
     <div className={styles.windowContent}>
       <div className={styles.paneGroup}>
         <div className={`${styles.paneSm} ${styles.sidebar}`}>
-          <Navbar
+          <Sidebar
             isAuthenticated={isAuthenticated}
             onLogout={onLogout}
           />

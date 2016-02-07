@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import MenuBlock from '../common/MenuBlock';
-import styles from './Navbar.scss';
+import styles from './Sidebar.scss';
 
-export const Navbar = ({ isAuthenticated, onLogout }) => {
+export const Sidebar = ({ isAuthenticated, onLogout }) => {
   const loggedInLinks = (
     <div>
       <MenuBlock to="protected" icon="lock" text="Protected" />
@@ -25,7 +25,7 @@ export const Navbar = ({ isAuthenticated, onLogout }) => {
   );
 };
 
-Navbar.propTypes = {
+Sidebar.propTypes = {
   isAuthenticated: PropTypes.bool,
   onLogout: PropTypes.func,
 };
