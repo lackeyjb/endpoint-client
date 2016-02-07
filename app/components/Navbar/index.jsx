@@ -1,23 +1,27 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
+import MenuBlock from '../common/MenuBlock';
+import styles from './Navbar.scss';
 
 export const Navbar = ({ isAuthenticated, onLogout }) => {
   const loggedInLinks = (
     <div>
-      <Link to="protected">Protected</Link>
-      <br />
-      <Link to="/" onClick={onLogout}>Logout</Link>
+      <MenuBlock to="protected" icon="lock" text="Protected" />
+      <MenuBlock to="/" icon="sign-out" text="Logout" onClick={onLogout} />
     </div>
   );
 
-  const notLoggedInLinks = <Link to="login">Login</Link>;
+  const notLoggedInLinks = (
+    <MenuBlock to="login" icon="sign-in" text="Login" />
+  );
 
   return (
-    <div>
-      <Link to="/">Home</Link>
-      <br />
+    <nav className={styles.menu}>
+      <p className={`menu-heading ${styles.navHeader}`}>
+        Endpoint
+      </p>
+      <MenuBlock to="/" icon="home" text="Home" />
       {isAuthenticated ? loggedInLinks : notLoggedInLinks}
-    </div>
+    </nav>
   );
 };
 
