@@ -13,18 +13,29 @@ function hasIcon(icon) {
   return '';
 }
 
-const MenuBlock = ({ to, icon, text, onClick }) => (
-  <Link className="menu-block" to={to} onClick={onClick}>
-    {hasIcon(icon)}
-    {text}
-  </Link>
-);
+const MenuBlock = ({ to, icon, text, onClick, externalLink }) => {
+  if (externalLink) {
+    return (
+      <a className="menu-block" onClick={onClick}>
+        {hasIcon(icon)}
+        {text}
+      </a>
+    );
+  }
+  return (
+    <Link className="menu-block" to={to} onClick={onClick}>
+      {hasIcon(icon)}
+      {text}
+    </Link>
+  );
+};
 
 MenuBlock.propTypes = {
-  to: PropTypes.string.isRequired,
+  to: PropTypes.string,
   icon: PropTypes.string,
   text: PropTypes.string,
   onClick: PropTypes.func,
+  externalLink: PropTypes.bool,
 };
 
 export default MenuBlock;

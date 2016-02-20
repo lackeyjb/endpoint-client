@@ -10,8 +10,14 @@ export const Sidebar = ({ isAuthenticated, onLogout }) => {
     </div>
   );
 
+  // TODO: change to real page link
+  const sendToSignUpPage = () => shell.openExternal('https://google.com'); // eslint-disable-line
+
   const notLoggedInLinks = (
-    <MenuBlock to="login" icon="sign-in" text="Login" />
+    <div>
+      <MenuBlock to="login" icon="sign-in" text="Login" />
+      <MenuBlock externalLink icon="user-plus" text="Signup" onClick={sendToSignUpPage} />
+    </div>
   );
 
   return (
