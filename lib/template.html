@@ -14,6 +14,7 @@
   <% if (htmlWebpackPlugin.options.mobile) { %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <% } %>
+  <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet'>
   <link href="https://cdn.rawgit.com/jgthms/bulma/master/css/bulma.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
   <% for (var css in htmlWebpackPlugin.files.css) { %>
@@ -45,7 +46,8 @@
 <div id="<%= htmlWebpackPlugin.options.appMountIds[index]%>"></div>
 <% } %>
 <% } %>
-
+<!-- Import Electron's UI library -->
+<script>var shell = require('shell')</script>
 <% if (htmlWebpackPlugin.options.window) { %>
 <script>
   <% for (var varName in htmlWebpackPlugin.options.window) { %>
